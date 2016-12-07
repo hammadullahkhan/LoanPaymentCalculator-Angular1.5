@@ -22,6 +22,13 @@ export default class LoanCalculatorCtrl {
             vm.interestRate = 3.56;
             vm.payOffMonths = 36;
             vm.loanRange = 6;
+
+            triggerAPI();
+        }
+
+        function triggerAPI() {
+            // lets do the calculations here :)
+            loanService.calculateLoan();
         }
     }
 }
