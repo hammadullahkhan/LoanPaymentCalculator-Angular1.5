@@ -1,0 +1,55 @@
+#loan-calculator-widget {
+
+    padding: 15px 0px 0px 0px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+
+    .seperatorRight {
+      border-right-width: 11px !important;
+      border-right-style: solid;
+    }
+
+    .seperatorBottom {
+      border-bottom-width: 11px !important;
+      border-bottom-style: solid;
+    }
+
+    .content-center {
+      text-align: center;
+    }
+
+    .content-right {
+      text-align: right;
+    }
+
+    .row {
+      margin-bottom: 20px !important;
+    }
+
+    [class*="col-"] {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      background-color: #eee;
+      background-color: rgba(86,61,124,.15);
+      border: 1px solid #ddd;
+      border: 1px solid rgba(86,61,124,.2)
+    }
+
+    input {
+      height: 19px;
+      width: 100px;
+    }
+
+    .col2-top-padding {
+      padding-top: 5%;
+    }
+
+    @media (max-width: 700px) {
+      .seperatorRight {
+        border-right-width: none;
+        border-right-style: none;
+      }
+    }
+}

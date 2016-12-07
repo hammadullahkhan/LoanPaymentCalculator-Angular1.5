@@ -1,0 +1,75 @@
+<div id="loan-calculator-widget">
+
+    <div class="row">
+        <div class="col-md-12 content-center">
+          <span ng-bind="::calculator.TXT.heading"></span>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- input section -->
+        <div class="col-md-6 seperatorRight">
+            <div class="row">
+                <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1 seperatorBottom">
+                    <span ng-bind="::calculator.TXT.borrowAmount"></span>
+                </div>
+                <div class="col-md-5 col-xs-5 seperatorBottom content-center">
+                    <input type="number" ng-model="calculator.borrowAmount">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1 seperatorBottom">
+                    <span ng-bind="::calculator.TXT.interestRate"></span>
+                </div>
+                <div class="col-md-5 col-xs-5 seperatorBottom content-center">
+                    <input type="number" ng-model="calculator.interestRate">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1">
+                    <span ng-bind="::calculator.TXT.payOffMonths"></span>
+                </div>
+                <div class="col-md-5 col-xs-5 content-center">
+                    <input type="number" ng-model="calculator.payOffMonths">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
+                     <input type="range" ng-model="calculator.loanRange" style="width: 100%;" id="weight" min="6" max="72" step="6">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-xs-3 col-md-offset-1 col-xs-offset-1">
+                     6 months
+                </div>
+                <div class="col-md-4 col-xs-4 col-md-offset-3 col-xs-offset-3 content-right">
+                     72 months
+                </div>
+            </div>
+
+        </div>
+
+        <!-- total section -->
+        <div class="col-md-6 col2-top-padding">
+          <div class="row">
+              <div class="col-md-10 col-md-offset-1 content-center">
+                  <span ng-bind="::calculator.TXT.subHeading"></span>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-10 col-md-offset-1 content-center">
+                  <h3 ng-bind="::calculator.calculatedTotal | currency"></h3>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-10 col-md-offset-1 content-center">
+                  <button type="button" class="btn btn-primary"><span ng-bind="::calculator.TXT.getStarted"></span></button>
+              </div>
+          </div>
+
+        </div>
+    </div>
+</div>
