@@ -14,8 +14,10 @@ export default function (app) {
             return service;
 
 
-            function calculateLoan() {
-              $log.debug('Hello from loan service!');
+            function calculateLoan(input) {
+                let result = (input.borrowAmount * input.interestRate) / input.loanRange.val;
+                //$log.debug('new total:' + result);
+                return result;
             }
 
         }

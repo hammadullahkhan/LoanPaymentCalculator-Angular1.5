@@ -6,13 +6,22 @@
     line-height: 1.5;
     word-wrap: break-word;
 
+    @media (max-width: 700px) {
+
+      font-size: 12px;
+      .seperatorRight {
+        border-right-width: none;
+        border-right-style: none;
+      }
+    }
+
     .seperatorRight {
-      border-right-width: 11px !important;
+      border-right-width: 1px !important;
       border-right-style: solid;
     }
 
     .seperatorBottom {
-      border-bottom-width: 11px !important;
+      border-bottom-width: 1px !important;
       border-bottom-style: solid;
     }
 
@@ -25,9 +34,68 @@
     }
 
     .row {
-      margin-bottom: 20px !important;
+      margin-bottom: 10px !important;
     }
 
+
+    ////////////////
+
+    input {
+      height: 19px;
+      width: 100px;
+    }
+
+    input[type=range] {
+      width: 100%;
+    }
+
+    .input-text-align-left {
+      text-align: left;
+    }
+
+    .input-text-align-center {
+      text-align: center;
+    }
+
+    .input-text-align-right {
+      text-align: right;
+    }
+
+    .input-icon {
+      position: relative;
+      float: right;
+    }
+
+    .input-icon > i {
+      position: absolute;
+      display: block;
+      transform: translate(0, -50%);
+      top: 50%;
+      pointer-events: none;
+      width: 25px;
+      text-align: center;
+    	font-style: normal;
+    }
+
+    .input-icon > input {
+      padding-left: 25px;
+    	padding-right: 25px;
+    }
+
+    .input-icon-right > i {
+      right: 0;
+    }
+
+    .input-icon-right > input {
+      padding-left: 0;
+      padding-right: 25px;
+      text-align: right;
+    }
+
+    ////////////////
+
+
+    /*
     [class*="col-"] {
       padding-top: 15px;
       padding-bottom: 15px;
@@ -36,20 +104,18 @@
       border: 1px solid #ddd;
       border: 1px solid rgba(86,61,124,.2)
     }
+    */
 
-    input {
-      height: 19px;
-      width: 100px;
+    [class*="col-"] {
+      padding-top: 15px;
+      padding-bottom: 15px;
     }
 
     .col2-top-padding {
       padding-top: 5%;
     }
 
-    @media (max-width: 700px) {
-      .seperatorRight {
-        border-right-width: none;
-        border-right-style: none;
-      }
+    .months-div {
+      margin-top: -32px !important;
     }
 }

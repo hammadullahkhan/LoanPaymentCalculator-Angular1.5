@@ -4,7 +4,10 @@ exports.EN = {
     "interestRate": "Interest rate",
     "payOffMonths": "Pay it off in",
     "subHeading": "Based on what you entered your monthly payment could be",
-    "getStarted": "Get started"
+    "getStarted": "Get started",
+    "months": " months",
+    "dollarSign": " $",
+    "percentageSign": " %"
 }
 
 exports.FR = {
@@ -13,5 +16,8 @@ exports.FR = {
     "interestRate": "Interest rate",
     "payOffMonths": "Pay it off in",
     "subHeading": "Based on what you entered your monthly payment could be",
-    "getStarted": "Get started"
+    "getStarted": "Get started",
+    "months": " months",
+    "dollarSign": " $",
+    "percentageSign": " %"
 }

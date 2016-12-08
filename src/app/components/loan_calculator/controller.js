@@ -17,18 +17,32 @@ export default class LoanCalculatorCtrl {
         function init() {
             // Set default values (if any)
             vm.TXT =  LANG === "FR" ? FR : EN;
-            vm.calculatedTotal = 333;
-            vm.borrowAmount = 12.500;
-            vm.interestRate = 3.56;
-            vm.payOffMonths = 36;
-            vm.loanRange = 6;
 
-            triggerAPI();
+            vm.calculatedTotal = 0.00;
+
+            // input fields
+            vm.input = {};
+            vm.input.borrowAmount = null;
+            vm.input.interestRate = null;
+            vm.input.loanRange = {
+              min: 6,
+              max: 72,
+              step: 6,
+              val: 6
+            };
+
+
+            vm.calculateLoan = function() {
+                triggerAPI(vm.input);
+            };
+
+
         }
 
-        function triggerAPI() {
+        function triggerAPI(input) {
             // lets do the calculations here :)
-            loanService.calculateLoan();
+            vm.calculatedTotal = loanService.calculateLoan(input);
+            //console.log('total', vm.calculatedTotal)
         }
     }
 }

@@ -1,53 +1,90 @@
 <div id="loan-calculator-widget">
+  <form name="frmLoanCalculator" form-on-change="calcVM.calculateLoan()">
 
     <div class="row">
         <div class="col-md-12 content-center">
-          <span ng-bind="::calculator.TXT.heading"></span>
+          <span ng-bind="::calcVM.TXT.heading"></span>
         </div>
     </div>
 
     <div class="row">
         <!-- input section -->
         <div class="col-md-6 seperatorRight">
+
             <div class="row">
-                <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1 seperatorBottom">
-                    <span ng-bind="::calculator.TXT.borrowAmount"></span>
-                </div>
-                <div class="col-md-5 col-xs-5 seperatorBottom content-center">
-                    <input type="number" ng-model="calculator.borrowAmount">
-                </div>
+              <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 seperatorBottom">
+                  <div class="row">
+                    <div class="col-md-5 col-xs-5">
+                        <span ng-bind="::calcVM.TXT.borrowAmount"></span>
+                    </div>
+                    <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1">
+                        <div class="input-icon">
+                          <i ng-bind="::calcVM.TXT.dollarSign"></i>
+                          <input type="number" class="input-text-align-right"
+                                 ng-model="calcVM.input.borrowAmount">
+                        </div>
+                    </div>
+                  </div>
+              </div>
             </div>
 
             <div class="row">
-                <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1 seperatorBottom">
-                    <span ng-bind="::calculator.TXT.interestRate"></span>
+              <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1 seperatorBottom">
+                  <div class="row">
+                    <div class="col-md-5 col-xs-5">
+                        <span ng-bind="::calcVM.TXT.interestRate"></span>
+                    </div>
+                    <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1">
+                        <div class="input-icon input-icon-right">
+                          <i ng-bind="::calcVM.TXT.percentageSign"></i>
+                          <input type="number"
+                                 ng-model="calcVM.input.interestRate">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-5 col-xs-5 seperatorBottom content-center">
-                    <input type="number" ng-model="calculator.interestRate">
-                </div>
+              </div>
             </div>
 
             <div class="row">
-                <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1">
-                    <span ng-bind="::calculator.TXT.payOffMonths"></span>
-                </div>
-                <div class="col-md-5 col-xs-5 content-center">
-                    <input type="number" ng-model="calculator.payOffMonths">
-                </div>
+              <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
+                  <div class="row">
+                      <div class="col-md-5 col-xs-5">
+                          <span ng-bind="::calcVM.TXT.payOffMonths"></span>
+                      </div>
+                      <div class="col-md-5 col-xs-5 col-md-offset-1 col-xs-offset-1">
+                          <div class="input-icon">
+                            <input type="text" disabled="disabled" class="input-text-align-right"
+                                   value="{{calcVM.input.loanRange.val}}">
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
 
             <div class="row">
-                <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
-                     <input type="range" ng-model="calculator.loanRange" style="width: 100%;" id="weight" min="6" max="72" step="6">
-                </div>
+              <div class="col-md-10 col-xs-10 col-md-offset-1 col-xs-offset-1">
+                  <div class="row months-div">
+                    <div class="col-md-11 col-xs-11">
+                         <input type="range" id="weight"
+                                ng-model="calcVM.input.loanRange.val"
+                                min="{{calcVM.input.loanRange.min}}"
+                                max="{{calcVM.input.loanRange.max}}"
+                                step="{{calcVM.input.loanRange.step}}">
+                    </div>
+                  </div>
+              </div>
             </div>
+
+
             <div class="row">
-                <div class="col-md-3 col-xs-3 col-md-offset-1 col-xs-offset-1">
-                     6 months
-                </div>
-                <div class="col-md-4 col-xs-4 col-md-offset-3 col-xs-offset-3 content-right">
-                     72 months
-                </div>
+                <div class="months-div">
+                    <div class="col-md-4 col-xs-4 col-md-offset-1 col-xs-offset-1">
+                         <span ng-bind="calcVM.input.loanRange.min + calcVM.TXT.months"></span>
+                    </div>
+                    <div class="col-md-4 col-xs-4 col-md-offset-1 col-xs-offset-1 content-right">
+                         <span ng-bind="calcVM.input.loanRange.max + calcVM.TXT.months"></span>
+                    </div>
+                  </div>
             </div>
 
         </div>
@@ -56,20 +93,22 @@
         <div class="col-md-6 col2-top-padding">
           <div class="row">
               <div class="col-md-10 col-md-offset-1 content-center">
-                  <span ng-bind="::calculator.TXT.subHeading"></span>
+                  <span ng-bind="::calcVM.TXT.subHeading"></span>
               </div>
           </div>
           <div class="row">
               <div class="col-md-10 col-md-offset-1 content-center">
-                  <h3 ng-bind="::calculator.calculatedTotal | currency"></h3>
+                  <h3 ng-bind="calcVM.calculatedTotal | currency"></h3>
               </div>
           </div>
           <div class="row">
               <div class="col-md-10 col-md-offset-1 content-center">
-                  <button type="button" class="btn btn-primary"><span ng-bind="::calculator.TXT.getStarted"></span></button>
+                  <button type="button" class="btn btn-primary"><span ng-bind="::calcVM.TXT.getStarted"></span></button>
               </div>
           </div>
 
         </div>
     </div>
+
+    </form>
 </div>
